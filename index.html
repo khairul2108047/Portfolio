@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khairul Vai | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a192f;
+            color: #ccd6f6;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #112240;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #64ffda;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #ccd6f6;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #64ffda;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .about, .skills, .projects, .contact {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #64ffda;
+            display: inline-block;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: #112240;
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: #64ffda;
+        }
+
+        .project {
+            background: #112240;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project h3 {
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #112240;
+            text-align: center;
+            padding: 15px 0;
+            color: #8892b0;
+        }
+
+        footer a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Khairul Islam</h1>
+        <p>Electronics Engineering Student | Competitive Programmer</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            Hi! I’m Khairul, an Electronics Engineering student passionate about circuit design, machine learning,
+            and competitive programming. I love building real-world projects and continuously improving my technical skills.
+        </p>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill">C++</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">PHP</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">ADS (Antenna Design)</div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Microstrip Patch Antenna Design</h3>
+            <p>Designed and simulated a microstrip patch antenna using ADS 2021 with optimized parameters for wireless applications.</p>
+        </div>
+        <div class="project">
+            <h3>Student Result Management System</h3>
+            <p>Developed a dynamic result management system using PHP and MySQL, allowing students to log in and view their results securely.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>You can reach me at: <a href="mailto:khairul@example.com">khairul@example.com</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Khairul Islam | Built with ❤️ and GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
