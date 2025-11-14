@@ -3,163 +3,862 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khairul Vai | Portfolio</title>
+    <title>Khairul Islam | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-bg: #0a192f;
+            --secondary-bg: #112240;
+            --accent-color: #64ffda;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+            --card-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #0a192f;
-            color: #ccd6f6;
+            background: var(--primary-bg);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Header & Navigation */
         header {
-            background: #112240;
+            background: rgba(10, 25, 47, 0.85);
             padding: 20px 0;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
         }
 
-        header h1 {
-            font-size: 2rem;
-            color: #64ffda;
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav {
-            margin-top: 10px;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
         }
 
         nav a {
-            color: #ccd6f6;
-            margin: 0 10px;
+            color: var(--text-primary);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
         }
 
         nav a:hover {
-            color: #64ffda;
+            color: var(--accent-color);
         }
 
-        section {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
         }
 
-        .about, .skills, .projects, .contact {
-            margin-bottom: 60px;
+        nav a:hover::after {
+            width: 100%;
         }
 
-        h2 {
-            color: #64ffda;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #64ffda;
-            display: inline-block;
+        .nav-number {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            margin-right: 5px;
         }
 
-        .skills-list {
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            align-items: center;
+            padding: 100px 20px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .skill {
-            background: #112240;
-            padding: 10px 20px;
-            border-radius: 20px;
-            color: #64ffda;
+        .hero-content {
+            max-width: 600px;
         }
 
-        .project {
-            background: #112240;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .project h3 {
-            color: #64ffda;
+        .hero-greeting {
+            color: var(--accent-color);
+            font-size: 1.1rem;
             margin-bottom: 10px;
         }
 
-        footer {
-            background: #112240;
-            text-align: center;
-            padding: 15px 0;
-            color: #8892b0;
+        .hero-name {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 10px;
         }
 
-        footer a {
-            color: #64ffda;
+        .hero-title {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 500;
             text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 300px;
+            background: var(--text-secondary);
+            margin-left: 20px;
+        }
+
+        .section-number {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-right: 10px;
+            font-family: monospace;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .profile-container {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 100%;
+            border-radius: 5px;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .profile-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            top: 20px;
+            left: 20px;
+            z-index: 0;
+            transition: var(--transition);
+        }
+
+        .profile-container:hover .profile-image {
+            transform: translate(5px, -5px);
+        }
+
+        .profile-container:hover .profile-frame {
+            transform: translate(-5px, 5px);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--secondary-bg);
+            padding: 25px;
+            border-radius: 5px;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--secondary-bg);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-description {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 10px 20px;
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .contact-email:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-bg);
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* CV Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.9);
+            z-index: 2000;
+            overflow: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--secondary-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--accent-color);
+        }
+
+        .close-btn {
+            color: var(--accent-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .cv-preview {
+            width: 100%;
+            height: 600px;
+            border: 1px solid var(--text-secondary);
+            border-radius: 5px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .section-title::after {
+                width: 100px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 20px;
+            }
+
+            .cv-preview {
+                height: 400px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
-        <h1>Khairul Islam</h1>
-        <p>Electronics and Telecommunication Engineering Student</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-container">
+            <a href="#" class="logo">KI</a>
+            <nav>
+                <ul>
+                    <li><a href="#about"><span class="nav-number"></span> About</a></li>
+                    <li><a href="#skills"><span class="nav-number"></span> Skills</a></li>
+                    <li><a href="#projects"><span class="nav-number"></span> Projects</a></li>
+                    <li><a href="#contact"><span class="nav-number"></span> Contact</a></li>
+                    <li><a href="#" class="btn-secondary" id="view-cv-btn">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <p>
-            I’m an undergraduate student at Chittagong University of Engineering and Technology, studying Electronics and Telecommunication Engineering. I love learning new things, especially in programming and technology. I’m working on improving my skills in competitive programming, web projects, and electronics design. I enjoy solving problems, experimenting with ideas, and turning them into real projects.
-        </p>
-    </section>
-
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <div class="skills-list">
-             <div class="skill">C</div>
-            <div class="skill">C++</div>
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">PHP</div>
-            <div class="skill">Python</div>
-            <div class="skill">ADS (Antenna Design)</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting fade-in">Hi, my name is</p>
+            <h1 class="hero-name fade-in delay-1">Md Khairul Islam</h1>
+            <h2 class="hero-title fade-in delay-2"></h2>
+            <p class="hero-description fade-in delay-3">
+                I'm an Electronics and Telecommunication Engineering student specializing in building exceptional digital experiences and electronic solutions. Currently, I'm focused on building accessible, human-centered products.
+            </p>
+            <div class="cta-buttons fade-in delay-3">
+                <a href="CV.pdf" class="btn btn-primary">Check out my work</a>
+                <a href="#" class="btn btn-secondary" id="hero-view-cv">View CV</a>
+            </div>
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Microstrip Patch Antenna Design</h3>
-            <p>Designed and simulated a microstrip patch antenna using ADS 2021 with optimized parameters for wireless applications.</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title"><span class="section-number"></span> About Me</h2>
         </div>
-        <div class="project">
-            <h3>Student Result Management System</h3>
-            <p>Developed a dynamic result management system using PHP and MySQL, allowing students to log in and view their results securely.</p>
-        </div>
-        <div class="project">
-            <h3>A Departmetal website</h3>
-            <p>Built a website of Department of Electronics and Telecommunication Engineering, CUET using HTML, CSS, PHP and MySQL with many features.</p>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Hello! I'm Khairul, an Electronics and Telecommunication Engineering student based in Chittagong, Bangladesh. I have a passion for creating things that live on the internet and in the physical world through electronics.
+                </p>
+                <p>
+                    I enjoy learning new technologies and applying them to solve real-world problems. My journey in technology started with programming in C, and since then I've expanded my skills to include web development, antenna design, and more.
+                </p>
+                <p>
+                    Here are a few technologies I've been working with recently:
+                </p>
+                <div class="skills-list">
+                    <ul>
+                        <li>C & C++</li>
+                        <li>HTML & CSS</li>
+                        <li>PHP & MySQL</li>
+                        <li>Python</li>
+                        <li>ADS (Antenna Design)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="profile-container">
+                <div class="profile-frame"></div>
+                <img src="Profile_pic.JPG" alt="Khairul Islam" class="profile-image">
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>You can reach me at: <a href="khairul02324443@gmail.com">khairul02324443@gmail.com</a></p>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2 class="section-title"><span class="section-number"></span> Skills & Technologies</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <ul class="skill-list">
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Python</li>
+                    <li>PHP</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <ul class="skill-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>MySQL</li>
+                    <li>Responsive Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Software</h3>
+                <ul class="skill-list">
+                    <li>Git & GitHub</li>
+                    <li>ADS (Advanced Design System)</li>
+                    <li>MATLAB</li>
+                    <li>VS Code</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2 class="section-title"><span class="section-number"></span> Some Things I've Built</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="" alt="Microstrip Patch Antenna Design" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Microstrip Patch Antenna Design</h3>
+                    <p class="project-description">
+                        Designed and simulated a microstrip patch antenna using ADS 2021 with optimized parameters for wireless applications.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ADS</span>
+                        <span class="tech-tag">Antenna Design</span>
+                        <span class="tech-tag">Simulation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Student Result Management System" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Student Result Management System</h3>
+                    <p class="project-description">
+                        Developed a dynamic result management system using PHP and MySQL, allowing students to log in and view their results securely.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Departmental Website" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Departmental Website</h3>
+                    <p class="project-description">
+                        Built a comprehensive website for the Department of Electronics and Telecommunication Engineering, CUET using modern web technologies.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-content">
+            <div class="section-header" style="justify-content: center;">
+                <h2 class="section-title"><span class="section-number"></span> Get In Touch</h2>
+            </div>
+            <p class="contact-description">
+                I'm currently looking for new opportunities in electronics and web development. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+            <a href="mailto:khairul02324443@gmail.com" class="contact-email">khairulislam02324443@gmail.com</a>
+            <div class="social-links">
+                <a href="https://github.com/khairul2108047" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/khairul-islam-7507a5282/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/khairul.islam.499974/" class="social-link"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2025 Khairul Islam | Built with ❤️ and GitHub Pages</p>
+        <p>Designed & Built by Khairul Islam</p>
+        <p>© 2025 All Rights Reserved</p>
     </footer>
+
+    <!-- CV Modal -->
+    <div id="cv-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 style="color: var(--accent-color); margin-bottom: 20px; text-align: center;">My Curriculum Vitae</h2>
+            <iframe src="cv.pdf" class="cv-preview"></iframe>
+            <div class="modal-buttons">
+                <a href="cv.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+                <button class="btn btn-secondary" id="print-cv-btn">
+                    <i class="fas fa-print"></i> Print CV
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get modal elements
+        const modal = document.getElementById("cv-modal");
+        const viewCvBtn = document.getElementById("view-cv-btn");
+        const heroViewCv = document.getElementById("hero-view-cv");
+        const closeBtn = document.getElementsByClassName("close-btn")[0];
+        const printCvBtn = document.getElementById("print-cv-btn");
+
+        // Open modal when View CV is clicked
+        viewCvBtn.onclick = function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+
+        heroViewCv.onclick = function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+
+        // Close modal when X is clicked
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Print CV functionality
+        printCvBtn.onclick = function() {
+            const iframe = document.querySelector('.cv-preview');
+            iframe.contentWindow.print();
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.background = 'rgba(10, 25, 47, 0.95)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.background = 'rgba(10, 25, 47, 0.85)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Initial check
+        fadeInOnScroll();
+    </script>
 
 </body>
 </html>
